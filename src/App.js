@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
       <Router>
-
+          {/* Sign up page */}
           <Route exact path={'/'} render={props => (
               <React.Fragment>
                   <div className="App">
@@ -24,6 +24,9 @@ function App() {
                   </div>
               </React.Fragment>
           )}/>
+          {/* Redirect for oauth */}
+          <Route exact path={'/oauth'} />
+
 
       </Router>
 
