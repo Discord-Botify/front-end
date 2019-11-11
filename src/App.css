@@ -50,6 +50,12 @@
   border-color: darkgrey;
   border-width: 1px;
   box-shadow: 3px 2px #888888;
+  border-radius: 10px;
+}
+
+.ArtistRow:hover {
+  background: lightgray;
+  margin-left: 29%;
 }
 
 
@@ -60,4 +66,8 @@
   height: 2.5em;
   border-radius: 100px;
   border: none;
+}
+
+.UnfollowBtn:hover {
+  background: rgb(39, 146, 76);
 }
