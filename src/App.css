@@ -23,3 +23,41 @@
   border-radius: 100px;
   border: none;
 }
+
+.FollowList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: solid;
+  padding-top: 1em;
+  border-color: darkgrey;
+  border-width: 2px;
+}
+
+.ArtistRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 16px;
+  max-width: 40%;
+  margin-left: 30%;
+  align-items: baseline;
+  text-align: center;
+  margin-bottom: 2em;
+  border-bottom: solid;
+  border-left: solid;
+  padding: 1em;
+  border-color: darkgrey;
+  border-width: 1px;
+  box-shadow: 3px 2px #888888;
+}
+
+
+.UnfollowBtn {
+  background: #1DB954;
+  color: white;
+  width: 6em;
+  height: 2.5em;
+  border-radius: 100px;
+  border: none;
+}

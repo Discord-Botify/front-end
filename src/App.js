@@ -14,7 +14,11 @@ class App extends Component{
       },
       {
         id: '2',
-        artist: 'more dummy data'
+        artist: 'dummy data'
+      },
+      {
+        id: '3',
+        artist: 'Extremely very long dummy data to see how much I can break the css and get away with it'
       },
     ]
   }
@@ -51,7 +55,9 @@ class App extends Component{
                       <p className="Description">
                           This is the home page.
                       </p>
+                      <div className="FollowList">
                       <FollowList follows={this.state.follows} unfollow = {this.unfollow}/>
+                      </div>
                   </div>
               </React.Fragment>
           )}/>
