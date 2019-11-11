@@ -24,7 +24,7 @@ class App extends Component{
   render() {
     return (
       <Router>
-
+          {/* Sign up page */}
           <Route exact path={'/'} render={props => (
               <React.Fragment>
                   <div className="App">
@@ -55,6 +55,9 @@ class App extends Component{
                   </div>
               </React.Fragment>
           )}/>
+          {/* Redirect for oauth */}
+          <Route exact path={'/oauth'} />
+
 
       </Router>
 
