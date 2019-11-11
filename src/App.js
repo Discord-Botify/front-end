@@ -18,6 +18,9 @@ class App extends Component{
       },
     ]
   }
+  unfollow = (id) => {
+    this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
+    }
   render() {
     return (
       <Router>
@@ -48,7 +51,7 @@ class App extends Component{
                       <p className="Description">
                           This is the home page.
                       </p>
-                      <FollowList follows={this.state.follows}/>
+                      <FollowList follows={this.state.follows} unfollow = {this.unfollow}/>
                   </div>
               </React.Fragment>
           )}/>
