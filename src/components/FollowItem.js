@@ -6,7 +6,7 @@ class FollowItem extends Component {
     const { id, artist} = this.props.follow;
     return (
       <div className="ArtistRow">
-        { artist }
+        <div className = "ArtistName">{ artist }</div>
         <button className="UnfollowBtn"
             onClick={this.props.unfollow.bind(this, id)}>
                 Unfollow

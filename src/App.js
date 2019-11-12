@@ -20,7 +20,7 @@ class App extends Component{
       },
       {
         id: '3',
-        artist: 'Extremely very long dummy data to see how much I can break the css and get away with it'
+        artist: 'Extremely very long dummy data to see how much I can break the css and get away with it but even longer now just for kicks and I cant break the button anymore'
       },
     ]
   }
@@ -41,12 +41,12 @@ class App extends Component{
                       <p className="Description">
                           This is the login page for the Discord App Botify, which lets you keep track of all your favorite artists.
                       </p>
-                      <button className="SpotButton"
+                      <button className="SpotButton OAuthButton"
                               onClick="">
                           Sign Up With Spotify
                       </button>
                       <a
-                          className={'btn btn-primary'}
+                          className={'btn btn-primary OAuthButton'}
                           href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Foauth&response_type=code&scope=identify'}>
                           Sign in with Discord
                       </a>
