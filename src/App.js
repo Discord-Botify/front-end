@@ -87,7 +87,7 @@ class App extends Component{
               <React.Fragment>
                   <div className="App">
                       <header className="Welcome">
-                          Profile
+                          My Profile
                       </header>
                       <p className="Description">
                           Welcome to your profile! You can set settings, edit or delete your account here.

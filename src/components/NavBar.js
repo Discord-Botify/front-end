@@ -9,8 +9,8 @@ class NavBar extends Component {
                 <div className="NavBar">
                     <Link to="/home">Home</Link>
                     <Link to="/profile">My Profile</Link>
-                    <Link to="/">Logout</Link>
                     <Link to="/about">About Us</Link>
+                    <Link to="/">Logout</Link>
                 </div>
                 {/*this is a duplicate, invisible navbar, 
                 it fills up space on the page.
@@ -19,8 +19,8 @@ class NavBar extends Component {
                 <div className="Filler">
                     <Link to="/home">Home</Link>
                     <Link to="/profile">My Profile</Link>
-                    <Link to="/">Logout</Link>
                     <Link to="/about">About Us</Link>
+                    <Link to="/">Logout</Link>
                 </div>
             </div>
         );
