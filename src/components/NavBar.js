@@ -10,6 +10,7 @@ class NavBar extends Component {
                     <Link to="/home">Home</Link>
                     <Link to="/profile">My Profile</Link>
                     <Link to="/">Logout</Link>
+                    <Link to="/about">About Us</Link>
                 </div>
                 {/*this is a duplicate, invisible navbar, 
                 it fills up space on the page.
@@ -19,6 +20,7 @@ class NavBar extends Component {
                     <Link to="/home">Home</Link>
                     <Link to="/profile">My Profile</Link>
                     <Link to="/">Logout</Link>
+                    <Link to="/about">About Us</Link>
                 </div>
             </div>
         );
