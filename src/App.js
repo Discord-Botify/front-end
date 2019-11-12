@@ -70,6 +70,32 @@ class App extends Component{
               </React.Fragment>
           )}/>
 
+          <Route exact path={'/about'} render={props => (
+              <React.Fragment>
+                  <div className="App">
+                      <header className="Welcome">
+                          About Us
+                      </header>
+                      <p className="Description">
+                          This is the Botify App!
+                      </p>
+                  </div>
+              </React.Fragment>
+          )}/>
+
+          <Route exact path={'/profile'} render={props => (
+              <React.Fragment>
+                  <div className="App">
+                      <header className="Welcome">
+                          Profile
+                      </header>
+                      <p className="Description">
+                          Welcome to your profile! You can set settings, edit or delete your account here.
+                      </p>
+                  </div>
+              </React.Fragment>
+          )}/>
+
 
           {/* Redirect for oauth */}
           <Route exact path={'/oauth'} component={DiscordAuthRedirect}/>
