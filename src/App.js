@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import FollowList from './components/FollowList';
+import NavBar from './components/NavBar';
 import DiscordAuthRedirect from "./reRoute/DiscordAuthRedirect";
 import './App.css';
 
@@ -29,7 +30,7 @@ class App extends Component{
   render() {
     return (
       <Router>
-
+          <NavBar/>
           {/* Sign up page */}
           <Route exact path={'/'} render={props => (
               <React.Fragment>
