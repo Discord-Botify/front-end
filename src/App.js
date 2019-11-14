@@ -100,7 +100,7 @@ class App extends Component{
           {/* Redirect for oauth */}
           <Route exact path={'/oauth'} render={props => (
               <React.Fragment>
-                  <DiscordAuthRedirect/>
+                  <DiscordAuthRedirect location={this.props.location}/>
               </React.Fragment>
           )}/>
 
