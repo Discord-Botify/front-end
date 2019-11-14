@@ -4,7 +4,7 @@ import Axios from "axios";
 
 class DiscordAuthRedirect extends Component {
 
-    apiToken = 'http://localhost:4567/api/authorize';
+    apiToken = 'http://localhost:4567/oauth';
 
     // Get the auth token from our backend
     authAndRedirect = (code) => {
