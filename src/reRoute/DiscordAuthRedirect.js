@@ -16,7 +16,7 @@ class DiscordAuthRedirect extends Component {
         return (
             <div>
                 {this.authAndRedirect(
-
+                    this.props.location.query.code
                 )}
             </div>
         );
