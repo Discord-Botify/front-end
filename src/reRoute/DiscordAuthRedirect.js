@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom'
 import Axios from "axios";
+import qs from 'query-string';
 
 class DiscordAuthRedirect extends Component {
 
@@ -16,7 +17,7 @@ class DiscordAuthRedirect extends Component {
         return (
             <div>
                 {this.authAndRedirect(
-                    this.props.location.query.code
+                    qs.parse(this.props.location.search, { ignoreQueryPrefix: true }).code
                 )}
             </div>
         );
