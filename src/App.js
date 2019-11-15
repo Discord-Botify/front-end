@@ -47,7 +47,7 @@ class App extends Component{
                       </button>
                       <a
                           className={'btn btn-primary OAuthButton'}
-                          href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Foauth&response_type=code&scope=identify'}>
+                          href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Foauth&response_type=code&scope=identify'}>
                           Sign in with Discord
                       </a>
                   </div>
@@ -98,7 +98,11 @@ class App extends Component{
 
 
           {/* Redirect for oauth */}
-          <Route exact path={'/oauth'} component={DiscordAuthRedirect}/>
+          <Route exact path={'/oauth'} render={props => (
+              <React.Fragment>
+                  <DiscordAuthRedirect location={this.props.location}/>
+              </React.Fragment>
+          )}/>
 
 
       </Router>

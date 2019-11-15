@@ -2,10 +2,11 @@
   "name": "spotify-front-end",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://botify.michaelrotuno.dev",
   "dependencies": {
     "auth0-js": "^9.11.3",
     "axios": "^0.19.0",
-    "query-string": "^6.8.3",
+    "query-string": "^6.9.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
