@@ -4,6 +4,7 @@
 
 .Welcome {
   font-size: 10vw;
+  color: #121B18;
   text-align: center;
 }
 
@@ -62,7 +63,13 @@
 
 .ArtistRow:hover {
   background: lightgray;
-  margin-left: 29vw;
+  box-shadow: none;
+  border-top: solid;
+  border-right: solid;
+  border-bottom: none;
+  border-left: none;
+  border-color: darkgrey;
+  border-width: 1px;
 }
 
 .ArtistName {
@@ -78,11 +85,13 @@
   height: 2.5em;
   border-radius: 100px;
   border: none;
+  box-shadow: 2px 1px #8c8f9c;
 }
 
 
 .UnfollowBtn:hover {
   background: rgb(39, 146, 76);
+  box-shadow: none;
 }
 
 .NavBar {
@@ -120,13 +129,19 @@
 }
 
 @media only screen and (max-width: 768px){
+
+  .NavBar > a {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    white-space: nowrap;
+  }
  
   .Welcome {
     font-size: 20vw;
   }
 
-  .UnfollowBtn {
+  .ArtistRow {
     font-size: 12px;
   }
-   
+
 }
