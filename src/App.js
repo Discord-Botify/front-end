@@ -4,6 +4,8 @@ import FollowList from './components/FollowList';
 import NavBar from './components/NavBar';
 import DiscordAuthRedirect from "./reRoute/DiscordAuthRedirect";
 import './App.css';
+import { CookiesProvider } from 'react-cookie';
+import SessionCookie from './components/SessionCookie'
 
 
 
@@ -27,8 +29,10 @@ class App extends Component{
   unfollow = (id) => {
     this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
     }
+
   render() {
     return (
+    <CookiesProvider>
       <Router>
           <NavBar/>
           {/* Sign up page */}
@@ -42,7 +46,7 @@ class App extends Component{
                           This is the login page for the Discord App Botify, which lets you keep track of all your favorite artists.
                       </p>
                       <button className="SpotButton OAuthButton"
-                              onClick="">
+                              onClick={null}>
                           Sign Up With Spotify
                       </button>
                       <a
@@ -50,6 +54,8 @@ class App extends Component{
                           href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Foauth&response_type=code&scope=identify'}>
                           Sign in with Discord
                       </a>
+                      {/* replace test with a jsx expression here to set the cookie */}
+                        <SessionCookie sessionToken={"test"}/>
                   </div>
                   
               </React.Fragment>
@@ -102,10 +108,12 @@ class App extends Component{
               <React.Fragment>
                   <DiscordAuthRedirect location={this.props.location}/>
               </React.Fragment>
+              // logic here to use onLogin 
           )}/>
 
 
       </Router>
+      </CookiesProvider>
 
     );
   }
