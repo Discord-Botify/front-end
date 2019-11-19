@@ -5,7 +5,7 @@ import qs from 'query-string';
 
 class DiscordAuthRedirect extends Component {
 
-    apiToken = 'http://localhost:4567/oauth/discord';
+    apiToken = 'http://api.michaelrotuno.dev:4567/oauth/discord';
     state = {
         queryString: '',
     };
