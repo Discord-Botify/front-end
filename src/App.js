@@ -5,12 +5,16 @@ import NavBar from './components/NavBar';
 import DiscordAuthRedirect from "./reRoute/DiscordAuthRedirect";
 import './App.css';
 import { CookiesProvider } from 'react-cookie';
-import SessionCookie from './components/SessionCookie'
+import Welcome from './components/Welcome';
+import Home from './components/Home';
+import About from './components/About';
+import MyProfile from './components/MyProfile';
 
 
 
 class App extends Component{
-  state = {
+/* Todo: use restapi call here instead of dummy data */
+    state = {
     follows: [
       {
         id: '1',
@@ -29,89 +33,27 @@ class App extends Component{
   unfollow = (id) => {
     this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
     }
-
   render() {
     return (
     <CookiesProvider>
       <Router>
           <NavBar/>
-          {/* Sign up page */}
-          <Route exact path={'/'} render={props => (
-              <React.Fragment>
-                  <div className="App">
-                      <header className="Welcome">
-                          Welcome
-                      </header>
-                      <p className="Description">
-                          This is the login page for the Discord App Botify, which lets you keep track of all your favorite artists.
-                      </p>
-                      <button className="SpotButton OAuthButton"
-                              onClick={null}>
-                          Sign Up With Spotify
-                      </button>
-                      <a
-                          className={'btn btn-primary OAuthButton'}
-                          href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Foauth&response_type=code&scope=identify'}>
-                          Sign in with Discord
-                      </a>
-                      {/* replace test with a jsx expression here to set the cookie */}
-                        <SessionCookie sessionToken={"test"}/>
-                  </div>
-                  
-              </React.Fragment>
-          )}/>
-           <Route exact path={'/home'} render={props => (
-              <React.Fragment>
-                  <div className="App">
-                      <header className="Welcome">
-                          Home
-                      </header>
-                      <p className="Description">
-                          This is the home page.
-                      </p>
-                      <div className="FollowList">
-                      <FollowList follows={this.state.follows} unfollow = {this.unfollow}/>
-                      </div>
-                  </div>
-              </React.Fragment>
-          )}/>
 
-          <Route exact path={'/about'} render={props => (
-              <React.Fragment>
-                  <div className="App">
-                      <header className="Welcome">
-                          About Us
-                      </header>
-                      <p className="Description">
-                          This is the Botify App!
-                      </p>
-                  </div>
-              </React.Fragment>
-          )}/>
+          <Route exact path={'/'} render={props => <Welcome/>}/>
 
-          <Route exact path={'/profile'} render={props => (
-              <React.Fragment>
-                  <div className="App">
-                      <header className="Welcome">
-                          My Profile
-                      </header>
-                      <p className="Description">
-                          Welcome to your profile! You can set settings, edit or delete your account here.
-                      </p>
-                  </div>
-              </React.Fragment>
-          )}/>
+           <Route exact path={'/home'} render={props => 
+            (<Home state={this.state} unfollow={this.unfollow}/>)}/>
+
+          <Route exact path={'/about'} render={props => <About/>}/>
+
+          <Route exact path={'/profile'} render={props => <MyProfile/>}/>
 
 
           {/* Redirect for oauth */}
           <Route exact path={'/oauth'} render={props => (
-              <React.Fragment>
-                  <DiscordAuthRedirect location={this.props.location}/>
-              </React.Fragment>
-              // logic here to use onLogin 
+              <><DiscordAuthRedirect location={this.props.location}/></>
+              // logic here to use onLogin
           )}/>
-
-
       </Router>
       </CookiesProvider>
 
