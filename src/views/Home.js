@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import FollowList from './FollowList';
+import FollowList from '../components/FollowList';
  
 class Home extends Component {
     render() {

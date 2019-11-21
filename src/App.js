@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import FollowList from './components/FollowList';
 import NavBar from './components/NavBar';
 import DiscordAuthRedirect from "./reRoute/DiscordAuthRedirect";
 import './App.css';
 import { CookiesProvider } from 'react-cookie';
-import Welcome from './components/Welcome';
-import Home from './components/Home';
-import About from './components/About';
-import MyProfile from './components/MyProfile';
+import Welcome from './views/Welcome';
+import Home from './views/Home';
+import About from './views/About';
+import MyProfile from './views/MyProfile';
 
 
 
@@ -47,7 +46,6 @@ class App extends Component{
           <Route exact path={'/about'} render={props => <About/>}/>
 
           <Route exact path={'/profile'} render={props => <MyProfile/>}/>
-
 
           {/* Redirect for oauth */}
           <Route exact path={'/oauth'} render={props => (
