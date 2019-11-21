@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css';
-import SessionCookie from './SessionCookie';
+import SessionCookie from '../components/SessionCookie';
  
 class Welcome extends Component {
     render() {
