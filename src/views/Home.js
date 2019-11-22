@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import FollowList from '../components/FollowList';
+import SessionCookie from '../components/SessionCookie';
  
 class Home extends Component {
     render() {
@@ -17,6 +18,7 @@ class Home extends Component {
             unfollow = {this.props.unfollow}/>
             </div>
         </div>
+        
         );
     }
 }

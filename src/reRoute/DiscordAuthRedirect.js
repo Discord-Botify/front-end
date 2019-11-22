@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom'
 import Axios from "axios";
 import qs from 'query-string';
+import SessionCookie from '../components/SessionCookie'
 
 class DiscordAuthRedirect extends Component {
 
@@ -24,7 +25,10 @@ class DiscordAuthRedirect extends Component {
         };
 
         Axios.post(this.apiToken, {'code': code}, {headers: headers})
-            .then(response => console.log(response));
+            .then(response => {
+                console.log(response);
+                SessionCookie(response.data.appSessionId);
+            });
 
         // Set all the cookies
 
