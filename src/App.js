@@ -14,6 +14,7 @@ import MyProfile from './views/MyProfile';
 class App extends Component{
 /* Todo: use restapi call here instead of dummy data */
     state = {
+        sessionId: '',
     follows: [
       {
         id: '1',

@@ -18,13 +18,19 @@ class DiscordAuthRedirect extends Component {
     // Get the auth token from our backend
     authAndRedirect = (code) => {
 	// Headers
-	let headers = {
-		'Content-type': 'application/json',
-		'Accept': 'application/json'
-	};
+        let headers = {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        };
 
         Axios.post(this.apiToken, {'code': code}, {headers: headers})
             .then(response => console.log(response));
+
+        // Set all the cookies
+
+        // Put the session ID in the app state
+
+        // Redirect to the homepage
     };
 
     render() {
