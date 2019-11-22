@@ -27,7 +27,7 @@ class DiscordAuthRedirect extends Component {
         Axios.post(this.apiToken, {'code': code}, {headers: headers})
             .then(response => {
                 console.log(response);
-                SessionCookie(response.data.appSessionId);
+                SessionCookie("response.data.appSessionId");
             });
 
         // Set all the cookies
