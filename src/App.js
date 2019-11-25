@@ -8,11 +8,17 @@ import Welcome from './views/Welcome';
 import Home from './views/Home';
 import About from './views/About';
 import MyProfile from './views/MyProfile';
-
+import Axios from "axios";
 
 
 class App extends Component{
 /* Todo: use restapi call here instead of dummy data */
+constructor() {
+  Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.state.sessionId)
+  .then(response => {
+    this.setState({follows: response.body});
+  });
+}
     state = {
         sessionId: '',
     follows: [
@@ -31,7 +37,18 @@ class App extends Component{
     ]
   }
   unfollow = (id) => {
-    this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
+    Axios.delete("https://api.michaelrotuno.dev:4567/users/follow/"+ this.state.sessionId + "/"+ id)
+    .then(response => {
+      if(response.status === 200) {
+        this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
+      }
+      else {
+        alert("Did not work");
+      }
+
+    });
+
+    
     }
   render() {
     return (
