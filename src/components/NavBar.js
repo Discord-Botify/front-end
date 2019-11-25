@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
     render() {
 
-        if(this.props.stoken==='notoken'){
+        if(this.props.stoken===null){
             return null
         } else {
         return (

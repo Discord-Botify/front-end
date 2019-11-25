@@ -23,8 +23,8 @@ class App extends Component{
       var c = ca[i];
       while (c.charAt(0)==' ') c = c.substring(1,c.length);
       if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-  }
-  return null;
+    }
+    return null;
   }
   state = {
   sessionId: 'notoken',
@@ -33,20 +33,20 @@ class App extends Component{
 
   constructor() {
     super();
-    if(this.state.sessionId!=='notoken'){
-      this.setState({sessionId: this.readCookie('stoken')});
-    }
+    //if(this.state.sessionId!=='notoken'){
+    //  this.setState({sessionId: this.readCookie('stoken')});
+    //}
   }
 
   getFollows = () => {
-    Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.state.sessionId)
+    Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.readCookie('stoken'))
     .then(response => {
       this.setState({follows: response.body});
     });
   }
 
   unfollow = (id) => {
-    Axios.delete("https://api.michaelrotuno.dev:4567/users/follow/"+ this.state.sessionId + "/"+ id)
+    Axios.delete("https://api.michaelrotuno.dev:4567/users/follow/"+ this.readCookie('stoken') + "/"+ id)
     .then(response => {
       if(response.status === 204) {
         this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
@@ -63,7 +63,7 @@ class App extends Component{
     return (
     <CookiesProvider>
       <Router>
-          <NavBar stoken={this.state.sessionId}/>
+          <NavBar stoken={this.readCookie('stoken')}/>
 
           <Route exact path={'/'} render={props => <Welcome/>}/>
 
