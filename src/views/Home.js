@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import '../App.css';
 import FollowList from '../components/FollowList';
-import SessionCookie from '../components/SessionCookie';
+import {withRouter} from 'react-router'
+
  
 class Home extends Component {
+
+
+    constructor(props){
+        super(props);
+        if(this.props.state.sessionId==='notoken'){
+            this.props.history.push("/");
+        }
+    }
+
+    componentDidMount() {
+        this.props.getFollows();
+    }
+
     render() {
         return (
             <div className="App">
@@ -22,4 +36,4 @@ class Home extends Component {
         );
     }
 }
-export default Home;
+export default withRouter(Home);

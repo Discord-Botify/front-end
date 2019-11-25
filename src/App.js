@@ -13,33 +13,42 @@ import Axios from "axios";
 
 class App extends Component{
 /* Todo: use restapi call here instead of dummy data */
-constructor() {
-  Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.state.sessionId)
-  .then(response => {
-    this.setState({follows: response.body});
-  });
-}
-    state = {
-        sessionId: '',
-    follows: [
-      {
-        id: '1',
-        artist: 'some dummy data'
-      },
-      {
-        id: '2',
-        artist: 'dummy data'
-      },
-      {
-        id: '3',
-        artist: 'Extremely very long dummy data to see how much I can break the css and get away with it but even longer now just for kicks and I cant break the button anymore'
-      },
-    ]
+
+// copied from user mkoryak's answer on
+//https://stackoverflow.com/questions/10730362/get-cookie-by-name
+ readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
   }
+  return null;
+  }
+  state = {
+  sessionId: 'notoken',
+  follows: [],
+  }
+
+  constructor() {
+    super();
+    if(this.state.sessionId!=='notoken'){
+      this.setState({sessionId: this.readCookie('stoken')});
+    }
+  }
+
+  getFollows = () => {
+    Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.state.sessionId)
+    .then(response => {
+      this.setState({follows: response.body});
+    });
+  }
+
   unfollow = (id) => {
     Axios.delete("https://api.michaelrotuno.dev:4567/users/follow/"+ this.state.sessionId + "/"+ id)
     .then(response => {
-      if(response.status === 200) {
+      if(response.status === 204) {
         this.setState({follows: [...this.state.follows.filter(follow => follow.id !== id)]});
       }
       else {
@@ -54,12 +63,14 @@ constructor() {
     return (
     <CookiesProvider>
       <Router>
-          <NavBar/>
+          <NavBar stoken={this.state.sessionId}/>
 
           <Route exact path={'/'} render={props => <Welcome/>}/>
 
            <Route exact path={'/home'} render={props => 
-            (<Home state={this.state} unfollow={this.unfollow}/>)}/>
+            (<Home state={this.state} 
+              getFollows={this.getFollows}
+              unfollow={this.unfollow}/>)}/>
 
           <Route exact path={'/about'} render={props => <About/>}/>
 

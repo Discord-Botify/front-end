@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
  
 class NavBar extends Component {
     render() {
+
+        if(this.props.stoken==='notoken'){
+            return null
+        } else {
         return (
             <div>
                 <div className="NavBar">
@@ -23,7 +27,8 @@ class NavBar extends Component {
                     <Link to="/">Logout</Link>
                 </div>
             </div>
-        );
+            );
+        }
     }
 }
 export default NavBar;
