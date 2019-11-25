@@ -78,7 +78,9 @@ class App extends Component{
 
           {/* Redirect for oauth */}
           <Route exact path={'/oauth'} render={props => (
-              <><DiscordAuthRedirect location={this.props.location}/></>
+              <><DiscordAuthRedirect 
+              stoken={this.readCookie('stokenProp')}
+              location={this.props.location}/></>
               // logic here to use onLogin
           )}/>
       </Router>

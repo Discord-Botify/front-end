@@ -28,7 +28,8 @@ class DiscordAuthRedirect extends Component {
 
     // Get the auth token from our backend
     authAndRedirect = (code) => {
-	// Headers
+    // Headers
+        if(this.props.stokenProp!==null){
         let headers = {
             'Content-type': 'application/json',
             'Accept': 'application/json'
@@ -46,7 +47,8 @@ class DiscordAuthRedirect extends Component {
         // Put the session ID in the app state
 
         // Redirect to the homepage
-    };
+            }
+        };
 
     render() {
         return (
