@@ -9,9 +9,6 @@ class Home extends Component {
 
     constructor(props){
         super(props);
-        if(this.props.state.sessionId==='notoken'){
-            this.props.history.push("/");
-        }
     }
 
     componentDidMount() {
