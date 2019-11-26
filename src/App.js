@@ -39,9 +39,13 @@ class App extends Component{
   }
 
   getFollows = () => {
-    Axios.get('https://api.michaelrotuno.dev:4567/users/follow/' + this.readCookie('stoken'))
+    Axios.get('https://api.michaelrotuno.dev:4567/users/follow/'.concat(this.readCookie('stoken')))
     .then(response => {
-      this.setState({follows: response.body});
+      //console.log(this.readCookie('stoken'));
+      //console.log(response);
+      //console.log(response.data);
+      this.setState({follows: response.data});
+      //console.log(this.state.follows);
     });
   }
 

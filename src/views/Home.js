@@ -9,10 +9,7 @@ class Home extends Component {
 
     constructor(props){
         super(props);
-    }
-
-    componentDidMount() {
-        this.props.getFollows();
+	this.props.getFollows();
     }
 
     render() {
@@ -25,7 +22,7 @@ class Home extends Component {
                 This is the home page.
             </p>
             <div className="FollowList">
-            <FollowList follows={this.props.state.follows} 
+            <FollowList state={this.props.state} 
             unfollow = {this.props.unfollow}/>
             </div>
         </div>
