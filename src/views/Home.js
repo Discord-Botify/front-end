@@ -21,6 +21,10 @@ class Home extends Component {
             <p className="Description">
                 This is the home page.
             </p>
+            <button className="SpotButton OAuthButton"
+                    onClick={null}>
+                Import Spotify Artists
+            </button>
             <div className="FollowList">
             <FollowList state={this.props.state} 
             unfollow = {this.props.unfollow}/>
