@@ -106,7 +106,8 @@ class App extends Component {
                         (<Home
                             state={this.state}
                             getFollows={this.getFollows}
-                            unfollow={this.unfollow}/>)}/>
+                            unfollow={this.unfollow}
+                            followSpotifyArtists={this.followSpotifyArtists}/>)}/>
 
                     <Route exact path={'/about'} render={props => <About/>}/>
 
