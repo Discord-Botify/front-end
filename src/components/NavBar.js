@@ -9,24 +9,26 @@ class NavBar extends Component {
             return null
         } else {
         return (
-            <div>
-                <div className="NavBar">
-                    <Link to="/home">Home</Link>
-                    <Link to="/profile">My Profile</Link>
-                    <Link to="/about">About Us</Link>
-                    <Link to="/">Logout</Link>
-                </div>
-                {/*this is a duplicate, invisible navbar, 
-                it fills up space on the page.
-                That way, the visible one can take up space,
-                while also being fixed if you scroll down */}
-                <div className="Filler">
-                    <Link to="/home">Home</Link>
-                    <Link to="/profile">My Profile</Link>
-                    <Link to="/about">About Us</Link>
-                    <Link to="/">Logout</Link>
-                </div>
+            
+
+
+            <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+            <a className="navbar-brand" href="#">Navbar</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-nav m-auto"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+                <a className="nav-item nav-link active text-white text-uppercase ml-5" href="/home">Home&nbsp;<i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+                <a className="nav-item nav-link text-white text-uppercase ml-5" href="/profile">Profile</a>
+                <a className="nav-item nav-link text-white text-uppercase ml-5" href="about">About</a>
+                <a className="nav-item nav-link text-white text-uppercase ml-5" href="/">Logout</a>
             </div>
+            </div>
+            </nav>
+
+
+
             );
         }
     }
