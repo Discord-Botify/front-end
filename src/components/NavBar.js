@@ -15,6 +15,12 @@ class NavBar extends Component {
                     <Link to="/profile">My Profile</Link>
                     <Link to="/about">About Us</Link>
                     <Link to="/">Logout</Link>
+                    <a className={"btn"} style={{backgroundColor: "#7289da"}}>
+                        Signed in with Discord
+                    </a>
+                    <a className={"btn"} style={{backgroundColor: " #1DB954"}}>
+                        Sync with Spotify
+                    </a>
                 </div>
                 {/*this is a duplicate, invisible navbar, 
                 it fills up space on the page.
