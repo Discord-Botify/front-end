@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
 import DiscordAuthRedirect from "./reRoute/DiscordAuthRedirect";
+import SpotifyAuthRedirect from "./reRoute/SpotifyAuthRedirect";
 import './App.css';
 import {CookiesProvider} from 'react-cookie';
 import Welcome from './views/Welcome';
