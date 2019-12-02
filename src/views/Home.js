@@ -16,7 +16,7 @@ class Home extends Component {
         // If the user is logged into Spotify show the sync button
         // otherwise, show the log in with Spotify button
         let spotifyButton;
-        if(this.props.spotifyUserName !== '') {
+        if(this.props.spotifyUserName != '') {
             spotifyButton =
                 <button
                     onClick={this.props.followSpotifyArtists()}
@@ -28,7 +28,7 @@ class Home extends Component {
             spotifyButton =
                 <a
                     href={"https://accounts.spotify.com/authorize?client_id=98963ec74fd1458abc45cd519d4494de&response_type=code&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Fspotify-oauth&scope=user-follow-read%20user-read-private"}
-                    className={"btn"}
+                    className={"btn btn-primary"}
                     style={{backgroundColor: " #1DB954"}}
                 >
                     Sign in with Spotify to Sync
