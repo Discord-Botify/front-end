@@ -9,6 +9,7 @@ import Home from './views/Home';
 import About from './views/About';
 import MyProfile from './views/MyProfile';
 import Axios from "axios";
+import SearchBar from './components/SearchBar';
 
 
 class App extends Component{
@@ -89,6 +90,9 @@ class App extends Component{
           )}/>
       </Router>
       </CookiesProvider>
+    
+
+
 
     );
   }

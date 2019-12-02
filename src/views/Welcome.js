@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import '../App.css';
 import SessionCookie from '../components/SessionCookie';
 import Logout from '../components/Logout';
+
  
 class Welcome extends Component {
     render() {
         return (
+            
             <div className="App">
             <header className="Welcome">
+                
                 Welcome
             </header>
             <p className="Description">
