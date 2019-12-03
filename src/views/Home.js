@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../App.css';
 import FollowList from '../components/FollowList';
 import {withRouter} from 'react-router';
 
- 
+
 class Home extends Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props);
-	    this.props.getFollows();
+        this.props.getFollows();
     }
 
     render() {
         // If the user is logged into Spotify show the sync button
         // otherwise, show the log in with Spotify button
         let spotifyButton;
-        if(this.props.spotifyUserName !== '') {
+        if (this.props.state.spotifyUserName !== '') {
             spotifyButton =
                 <button
                     onClick={this.props.followSpotifyArtists()}
@@ -37,21 +37,26 @@ class Home extends Component {
 
 
         return (
-            <div className="App">
-            <header className="Welcome">
-                Home
-            </header>
-            <p className="Description">
-                This is the home page.
-            </p>
-                {spotifyButton}
-            <div className="FollowList">
-            <FollowList state={this.props.state} 
-            unfollow = {this.props.unfollow}/>
+            <div className="App container">
+                <div className={"row"}>
+                    <div className={"col"}>
+                        <header className="Welcome">
+                            Home
+                        </header>
+                        <p className="Description">
+                            This is the home page.
+                        </p>
+                        {spotifyButton}
+                        <div className="FollowList">
+                            <FollowList state={this.props.state}
+                                        unfollow={this.props.unfollow}/>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
+
         );
     }
 }
+
 export default withRouter(Home);
