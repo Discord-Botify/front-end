@@ -17,6 +17,11 @@ class DiscordAuthRedirect extends Component {
         this.state.queryString = window.location.search.substring(1);
     };
 
+    componentDidMount() {
+        this.authAndRedirect(
+            qs.parse(this.state.queryString, {ignoreQueryPrefix: true}).code)
+    }
+
     componentDidUpdate() {
         if (this.state.redirect) {
             document.cookie = "stoken=" + this.state.stoken;
@@ -43,8 +48,6 @@ class DiscordAuthRedirect extends Component {
     render() {
         return (
             <div>
-                {this.authAndRedirect(
-                    qs.parse(this.state.queryString, {ignoreQueryPrefix: true}).code)}
             </div>
         );
     };

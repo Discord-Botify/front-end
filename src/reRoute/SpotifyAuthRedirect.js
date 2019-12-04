@@ -17,6 +17,11 @@ class SpotifyAuthRedirect extends Component {
         this.state.queryString = window.location.search.substring(1);
     }
 
+    componentDidMount() {
+        this.authAndRedirect(
+            qs.parse(this.state.queryString, { ignoreQueryPrefix: true }).code)
+    }
+
     componentDidUpdate() {
         if(this.state.redirect){
             this.props.history.push("/home");
@@ -45,8 +50,6 @@ class SpotifyAuthRedirect extends Component {
     render() {
         return (
             <div>
-                {this.authAndRedirect(
-                    qs.parse(this.state.queryString, { ignoreQueryPrefix: true }).code)}
             </div>
         );
     }
