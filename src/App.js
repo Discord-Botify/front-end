@@ -89,7 +89,7 @@ class App extends Component {
 
     spotifyLogin(code) {
         Axios({
-	    method: 'post',
+            method: 'post',
             url: 'https://api.michaelrotuno.dev:4567/oauth/spotify',
             data: {
                 code: code,
@@ -97,17 +97,16 @@ class App extends Component {
             }
         })
             .then(response => {
-                if(response.status === 201) {
+                if (response.status === 201) {
                     this.setState({spotifyUserName: response.data});
-                }
-                else {
+                } else {
                     alert('Failure logging into Spotify')
                 }
             });
     }
 
     setSpotifyUserName(userName) {
-	this.setState({spotifyUserName: userName});
+        this.setState({spotifyUserName: userName});
     }
 
     followSpotifyArtists() {
@@ -115,18 +114,20 @@ class App extends Component {
     }
 
     followArtist = (artistId) => {
-        if(artistId !== '') {
+        if (artistId !== '') {
             let url = 'https://api.michaelrotuno.dev/users/follow/' +
                 this.readCookie.bind(this, 'stoken') + '/' + artistId;
             console.log(url);
-		Axios.post(url)
+            Axios.post(url)
                 .then(response => {
-                    if(response.status !== 204) {
+                    if (response.status === 204) {
+                        console.log('Artist follow response: ' + response.data);
+                    } else {
                         alert('Failed adding artist with id: ' + artistId);
                     }
                 });
         }
-    }
+    };
 
     render() {
         return (
@@ -134,9 +135,9 @@ class App extends Component {
                 <Router>
                     <NavBar
                         stoken={this.readCookie('stoken')}
-                        spotifyUserName = {this.state.spotifyUserName}
-                        spotifyLogin = {this.spotifyLogin}
-                        followSpotifyArtists = {this.followSpotifyArtists}
+                        spotifyUserName={this.state.spotifyUserName}
+                        spotifyLogin={this.spotifyLogin}
+                        followSpotifyArtists={this.followSpotifyArtists}
                     />
 
                     <div className={"container"}>

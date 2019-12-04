@@ -18,19 +18,6 @@ class FollowItem extends Component {
             </div>
         </div>
     );
-
-
-
-
-
-      {/*<div className="ArtistRow">*/}
-      {/*  <div className = "ArtistName">{ name }</div>*/}
-      {/*  <button className="UnfollowBtn"*/}
-      {/*      onClick={this.props.unfollow.bind(this, id)}>*/}
-      {/*          Unfollow*/}
-      {/*      </button>*/}
-      {/*</div>*/}
-    // )
   }
 }
 
