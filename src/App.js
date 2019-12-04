@@ -69,8 +69,8 @@ class App extends Component {
 
     spotifyLogin(code) {
         Axios({
-            method: 'https://api.michaelrotuno.dev:4567/oauth/spotify',
-            url: '/user/12345',
+	    method: 'post',
+            url: 'https://api.michaelrotuno.dev:4567/oauth/spotify',
             data: {
                 code: code,
                 sessionId: this.readCookie('stoken')
@@ -78,12 +78,16 @@ class App extends Component {
         })
             .then(response => {
                 if(response.status === 201) {
-                    this.setState({spotifyUserName: response.data.spotifyUserName});
+                    this.setState({spotifyUserName: response.data});
                 }
                 else {
                     alert('Failure logging into Spotify')
                 }
             });
+    }
+
+    setSpotifyUserName(userName) {
+	this.setState({spotifyUserName: userName});
     }
 
     followSpotifyArtists() {
@@ -125,8 +129,8 @@ class App extends Component {
                     {/* Redirect for Spotify oauth */}
                     <Route exact path={'/spotify-oauth'} render={props => (
                         <><SpotifyAuthRedirect
-                            readcookie={this.readCookie}
-                            setState={this.setState}/></>
+                            readCookie={this.readCookie}
+                            setSpotifyUserName={this.setSpotifyUserName}/></>
                     )}/>
 
                 </Router>

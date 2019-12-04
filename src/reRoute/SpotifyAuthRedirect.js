@@ -33,9 +33,10 @@ class SpotifyAuthRedirect extends Component {
                 'Accept': 'application/json'
             };
 
-            Axios.post(this.apiURL, {'code': code}, {headers: headers})
+            Axios.post(this.apiURL, {'code': code, 'sessionId': sessionId}, {headers: headers})
                 .then(response => {
-                    this.props.setState({spotifyUserName: response.data.spotifyUserName});
+		    // response.data is the Spotify user name
+                    this.props.setSpotifyUserName.bind(response.data);
                     this.setState({redirect: true});
                 });
         }

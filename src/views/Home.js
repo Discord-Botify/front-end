@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import FollowList from '../components/FollowList';
+import SearchBar from '../components/SearchBar'; 
 import {withRouter} from 'react-router';
 
 
@@ -47,6 +48,7 @@ class Home extends Component {
                             This is the home page.
                         </p>
                         {spotifyButton}
+			<SearchBar/>
                         <div className="FollowList">
                             <FollowList state={this.props.state}
                                         unfollow={this.props.unfollow}/>
