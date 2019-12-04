@@ -1,52 +1,82 @@
 import React, { Component } from 'react'
 import SearchResult from './SearchResult'
+import Axios from "axios";
 
 export class SearchBar extends Component {
     state = {
-        ArtistResults: [
-            {
-                id: 'kanyes1234',
-                name: 'west'
-            },
-            {
-                id: '1236dfasf23',
-                name: 'The Beatles'
-            }
-        ]
-    }
 
-    getSearchResults() {
-        
+    };
+
+    getSearchResults(event) {
+        if (event.key === "Enter") {
+            let searchString = document.getElementById('searchString').value;
+
+            // If the field is empty clear the search results
+            if (searchString === '') {
+                this.setState({ArtistResults: null})
+            } else {
+                // Call our API to search Spotify for the search string
+                Axios.get('https://api.michaelrotuno.dev:4567/searchArtists/' + searchString)
+                    .then(response => {
+                        this.setState({
+                            ArtistResults: response.data
+                        });
+
+                    });
+            }
+
+        }
     }
 
     render() {
-        this.searchResults = this.state.ArtistResults.map((searchResult) => (
-            <SearchResult key={searchResult.id} searchResult={searchResult} />
-        ));
+        if(this.state.ArtistResults) {
+            this.searchResults = this.state.ArtistResults.map((searchResult) => (
+                <SearchResult
+                    key={searchResult.id}
+                    searchResult={searchResult}
+                    followArtist={this.props.followArtist}
+                />
+            ));
 
+            this.searchResults =
+                <div id="menuItems" className="d-flex dropdown-menu flex-wrap">
+                    {this.searchResults}
+                </div>
+        }
+        else {
+            this.searchResults = <div></div>
+        }
 
 
         return (
 
-            <div className="row">
+            <div className="row flex-fill">
                 <div className="col-xs-1 col-sm-2 col-lg-3"></div>
                 <div className="col-xs-10 col-sm-8 col-lg-6">
                     
-                    <div className="dropdown">
-                        <div className="dropdown-toggle" data-toggle="dropdown" style={{display: 'flex'}}>
-                            <input type="text" name="title" style={{flex: '10', padding: '5px'}} placeholder="Search Artist To Follow"/>
-                            <input type="submit" value="Submit" onClick="getSearchResults()" className="btn" 
-                            style={{flex: '1'}} />
+                    <div
+                        className={
+                            this.state.ArtistResults ? "dropdown" : ""
+                        }
+                    >
+                        <div
+                            className={
+                                this.state.ArtistResults ? "dropdown-toggle" : ""
+                            }
+                            data-toggle={
+                                this.state.ArtistResults ? "dropdown" : ""
+                            }
+                            style={{display: 'flex'}}
+                        >
+                            <input
+                                type="text"
+                                id="searchString"
+                                style={{flex: '10', padding: '5px'}}
+                                onKeyPress={this.getSearchResults.bind(this)}
+                                placeholder="Search Artist To Follow"/>
                         </div>
-                        
-                           
-                            <div id="menuItems" className="d-flex dropdown-menu flex-wrap">
-                                {this.searchResults}
 
-
-                            </div>
-                            {/* <div id="empty" className="dropdown-header">No coins found</div> */}
-                        
+                        {this.searchResults}
                     </div>
 
                 </div>

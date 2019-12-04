@@ -3,43 +3,37 @@ import '../App.css';
 
 class SearchResult extends Component {
 
-  constructor(props){
-   super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    const { id, name } = this.props.searchResult;
-    return (
-    //   <form className="dropdown-item form-inline">
-          
-    //     <input className = "form-control-plaintext" value={name} readOnly></input>
-    //     <input className="form-control btn"
-    //        value={"follow"}>
-                
-    //         </input>
-    //   </form>
-    //   
+    render() {
+        const {id, name} = this.props.searchResult;
+        return (
+            <form className="flex-fill dropdown-item">
+                <div className="form-row">
+                    <div className="col-9">
+                        <a
+                            className="font-weight-bold"
+                            href={"https://open.spotify.com/artist/" + id}
+                            target="_blank"
+                        >{name}</a>
+                    </div>
+                    <div className="col">
+                        <button
+                            className="form-control btn btn-primary"
+                            style={{backgroundColor: " #1DB954"}}
+                            onClick={this.props.followArtist.bind(this, id)}
+                        >
+                            Follow
+                        </button>
+                    </div>
+                </div>
 
-    <form className="flex-fill dropdown-item">
-        <div className="form-row">
-            <div className="col-7">
-                <input className = "form-control-plaintext" value={name} readOnly></input>
-
-               
-            </div>
-            <div className="col">
-                <input className="form-control btn"
-                    value={"follow"} >
-                
-                </input>
-            </div>
-        </div>
- 
-   </form>
-    )
-  }
+            </form>
+        )
+    }
 }
-
 
 
 export default SearchResult;

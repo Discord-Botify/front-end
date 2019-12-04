@@ -10,7 +10,6 @@ import Home from './views/Home';
 import About from './views/About';
 import MyProfile from './views/MyProfile';
 import Axios from "axios";
-import SearchBar from './components/SearchBar';
 
 
 class App extends Component {
@@ -23,8 +22,8 @@ class App extends Component {
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
     }
@@ -34,13 +33,6 @@ class App extends Component {
         follows: [],
         spotifyUserName: '',
     };
-
-    constructor() {
-        super();
-        //if(this.state.sessionId!=='notoken'){
-        //  this.setState({sessionId: this.readCookie('stoken')});
-        //}
-    }
 
     getFollows = () => {
         Axios.get('https://api.michaelrotuno.dev:4567/users/follow/'.concat(this.readCookie('stoken')))
@@ -91,7 +83,20 @@ class App extends Component {
     }
 
     followSpotifyArtists() {
+        console.log('following Spotify artists in dev');
+    }
 
+    followArtist(artistId){
+        if(artistId !== '') {
+            let url = 'https://api.michaelrotuno.dev/users/follow/' +
+                this.readCookie('stoken') + '/' + artistId;
+            Axios.post(url)
+                .then(response => {
+                    if(response.status !== 204) {
+                        alert('Failed adding artist with id: ' + artistId);
+                    }
+                });
+        }
     }
 
     render() {
@@ -114,7 +119,10 @@ class App extends Component {
                                 readCookie={this.readCookie}
                                 getFollows={this.getFollows}
                                 unfollow={this.unfollow}
-                                followSpotifyArtists={this.followSpotifyArtists}/>)}/>
+                                followSpotifyArtists={this.followSpotifyArtists}
+                                followArtist={this.followArtist}
+                            />)
+                        }/>
 
                         <Route exact path={'/about'} render={props => <About/>}/>
 

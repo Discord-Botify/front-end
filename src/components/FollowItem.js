@@ -3,10 +3,6 @@ import '../App.css';
 
 class FollowItem extends Component {
 
-  constructor(props){
-   super(props);
-  }
-
   render() {
     const { id, name } = this.props.follow;
     return (

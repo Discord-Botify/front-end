@@ -21,10 +21,11 @@ class Home extends Component {
         if (spotifyUserName !== '') {
             spotifyButton =
                 <button
-                    onClick={this.props.followSpotifyArtists()}
+                    onClick={this.props.followSpotifyArtists.bind()}
+                    className={"btn btn-primary"}
                     style={{backgroundColor: " #1DB954"}}
                 >
-                    Hello, {spotifyUserName}
+                    Sync followed artists with Spotify
                 </button>
         } else {
             spotifyButton =
@@ -40,16 +41,14 @@ class Home extends Component {
 
         return (
             <div className="App">
-                <div className={"row d-flex justify-content-center"}>
-                    <div className={"col"}>
-                        <header className="Welcome">
-                            Home
-                        </header>
-                        <p className="Description">
-                            This is the home page.
-                        </p>
+                <div className={"row d-flex justify-content-center my-4"}>
+                    <div className={"col d-flex justify-content-center"}>
                         {spotifyButton}
-			<SearchBar/>
+                    </div>
+                </div>
+                <div className={"row d-flex my-4"}>
+                    <div className={"col"}>
+			            <SearchBar followArtist={this.props.followArtist}/>
                         <div className="FollowList">
                             <FollowList state={this.props.state}
                                         unfollow={this.props.unfollow}/>

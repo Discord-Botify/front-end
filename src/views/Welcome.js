@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../App.css';
-import SessionCookie from '../components/SessionCookie';
 import Logout from '../components/Logout';
 
  
