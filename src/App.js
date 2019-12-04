@@ -115,12 +115,12 @@ class App extends Component {
 
     followArtist = (artistId) => {
         if (artistId !== '') {
-            let url = 'https://api.michaelrotuno.dev/users/follow/' +
-                this.readCookie.bind(this, 'stoken') + '/' + artistId;
+            let url = 'https://api.michaelrotuno.dev:4567/users/follow/' +
+                this.readCookie('stoken') + '/' + artistId;
             console.log(url);
             Axios.post(url)
                 .then(response => {
-                    if (response.status === 204) {
+                    if (response.status === 201) {
                         console.log('Artist follow response: ' + response.data);
                     } else {
                         alert('Failed adding artist with id: ' + artistId);

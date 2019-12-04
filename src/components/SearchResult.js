@@ -7,6 +7,14 @@ class SearchResult extends Component {
         super(props);
     }
 
+	doArtistFollow = (e, id) => {
+		e.preventDefault();
+
+		console.log('in doArtistFollow');
+		console.log("artist id: " + id);
+		this.props.followArtist.bind(this, id);
+	}
+
     render() {
         const {id, name} = this.props.searchResult;
         return (
@@ -23,7 +31,7 @@ class SearchResult extends Component {
                         <button
                             className="form-control btn btn-primary"
                             style={{backgroundColor: " #1DB954"}}
-                            onClick={this.props.followArtist.bind(this, id)}
+                            onClick={(e) => this.doArtistFollow(e, id)}
                         >
                             Follow
                         </button>
