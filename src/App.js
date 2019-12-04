@@ -37,11 +37,40 @@ class App extends Component {
     getFollows = () => {
         Axios.get('https://api.michaelrotuno.dev:4567/users/follow/'.concat(this.readCookie('stoken')))
             .then(response => {
-                //console.log(this.readCookie('stoken'));
-                //console.log(response);
-                //console.log(response.data);
                 this.setState({follows: response.data});
-                //console.log(this.state.follows);
+            })
+            .catch(error => {
+                console.log('axios call failed');
+                // Populate the app with some fake artists (mostly for development reasons)
+                // TODO: remove this code for production
+                this.setState({
+                    follows: [
+                        {
+                            id: '1',
+                            name: 'This is a fake artist'
+                        },
+                        {
+                            id: '2',
+                            name: 'Another fake'
+                        },
+                        {
+                            id: '3',
+                            name: 'Another fake 3'
+                        },
+                        {
+                            id: '4',
+                            name: 'Another fake 4'
+                        },
+                        {
+                            id: '5',
+                            name: 'Another fake 5'
+                        },
+                        {
+                            id: '6',
+                            name: 'Another fake 6'
+                        },
+                    ]
+                });
             });
     };
 
