@@ -13,7 +13,6 @@ import Axios from "axios";
 
 
 class App extends Component {
-    /* Todo: use restapi call here instead of dummy data */
 
     // copied from user mkoryak's answer on
     //https://stackoverflow.com/questions/10730362/get-cookie-by-name
@@ -115,11 +114,12 @@ class App extends Component {
         console.log('following Spotify artists in dev');
     }
 
-    followArtist(artistId){
+    followArtist = (artistId) => {
         if(artistId !== '') {
             let url = 'https://api.michaelrotuno.dev/users/follow/' +
-                this.readCookie('stoken') + '/' + artistId;
-            Axios.post(url)
+                this.readCookie.bind(this, 'stoken') + '/' + artistId;
+            console.log(url);
+		Axios.post(url)
                 .then(response => {
                     if(response.status !== 204) {
                         alert('Failed adding artist with id: ' + artistId);
