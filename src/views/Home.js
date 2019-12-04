@@ -17,13 +17,14 @@ class Home extends Component {
         // If the user is logged into Spotify show the sync button
         // otherwise, show the log in with Spotify button
         let spotifyButton;
-        if (this.props.state.spotifyUserName !== '') {
+        let spotifyUserName = this.props.readCookie('spotifyUserName');
+        if (spotifyUserName !== '') {
             spotifyButton =
                 <button
                     onClick={this.props.followSpotifyArtists()}
                     style={{backgroundColor: " #1DB954"}}
                 >
-                    Hello, {this.props.state.spotifyUserName}
+                    Hello, {spotifyUserName}
                 </button>
         } else {
             spotifyButton =
@@ -38,8 +39,8 @@ class Home extends Component {
 
 
         return (
-            <div className="App container">
-                <div className={"row"}>
+            <div className="App">
+                <div className={"row d-flex justify-content-center"}>
                     <div className={"col"}>
                         <header className="Welcome">
                             Home

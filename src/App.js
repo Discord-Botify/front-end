@@ -105,33 +105,36 @@ class App extends Component {
                         followSpotifyArtists = {this.followSpotifyArtists}
                     />
 
-                    <Route exact path={'/'} render={props => <Welcome/>}/>
+                    <div className={"container"}>
+                        <Route exact path={'/'} render={props => <Welcome/>}/>
 
-                    <Route exact path={'/home'} render={props =>
-                        (<Home
-                            state={this.state}
-                            getFollows={this.getFollows}
-                            unfollow={this.unfollow}
-                            followSpotifyArtists={this.followSpotifyArtists}/>)}/>
+                        <Route exact path={'/home'} render={props =>
+                            (<Home
+                                state={this.state}
+                                readCookie={this.readCookie}
+                                getFollows={this.getFollows}
+                                unfollow={this.unfollow}
+                                followSpotifyArtists={this.followSpotifyArtists}/>)}/>
 
-                    <Route exact path={'/about'} render={props => <About/>}/>
+                        <Route exact path={'/about'} render={props => <About/>}/>
 
-                    <Route exact path={'/profile'} render={props => <MyProfile/>}/>
+                        <Route exact path={'/profile'} render={props => <MyProfile/>}/>
 
-                    {/* Redirect for Discord oauth */}
-                    <Route exact path={'/oauth'} render={props => (
-                        <><DiscordAuthRedirect
-                            stoken={this.readCookie('stokenProp')}
-                            location={this.props.location}/></>
-                        // logic here to use onLogin
-                    )}/>
+                        {/* Redirect for Discord oauth */}
+                        <Route exact path={'/oauth'} render={props => (
+                            <><DiscordAuthRedirect
+                                stoken={this.readCookie('stokenProp')}
+                                location={this.props.location}/></>
+                            // logic here to use onLogin
+                        )}/>
 
-                    {/* Redirect for Spotify oauth */}
-                    <Route exact path={'/spotify-oauth'} render={props => (
-                        <><SpotifyAuthRedirect
-                            readCookie={this.readCookie}
-                            setSpotifyUserName={this.setSpotifyUserName}/></>
-                    )}/>
+                        {/* Redirect for Spotify oauth */}
+                        <Route exact path={'/spotify-oauth'} render={props => (
+                            <><SpotifyAuthRedirect
+                                readCookie={this.readCookie}
+                                setSpotifyUserName={this.setSpotifyUserName}/></>
+                        )}/>
+                    </div>
 
                 </Router>
             </CookiesProvider>

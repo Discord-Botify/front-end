@@ -24,6 +24,7 @@ class SpotifyAuthRedirect extends Component {
 
     componentDidUpdate() {
         if(this.state.redirect){
+            document.cookie = "spotifyUserName=" + this.state.spotifyUserName;
             this.props.history.push("/home");
         }
     }
@@ -40,9 +41,9 @@ class SpotifyAuthRedirect extends Component {
 
             Axios.post(this.apiURL, {'code': code, 'sessionId': sessionId}, {headers: headers})
                 .then(response => {
-		    // response.data is the Spotify user name
+		            // response.data is the Spotify user name
                     this.props.setSpotifyUserName.bind(response.data);
-                    this.setState({redirect: true});
+                    this.setState({spotifyUserName: response.data, redirect: true});
                 });
         }
     };
