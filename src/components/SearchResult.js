@@ -7,20 +7,27 @@ class SearchResult extends Component {
         super(props);
     }
 
-	doArtistFollow = (e, id) => {
-		e.preventDefault();
-
+	doArtistFollow = (id) => {
 		console.log('in doArtistFollow');
 		console.log("artist id: " + id);
 		this.props.followArtist.bind(this, id);
-	}
+	};
+	// doArtistFollow = (e, id) => {
+	// 	e.preventDefault();
+    //
+	// 	console.log('in doArtistFollow');
+	// 	console.log("artist id: " + id);
+	// 	this.props.followArtist.bind(this, id);
+	// };
+
+
 
     render() {
         const {id, name} = this.props.searchResult;
         return (
-            <form className="flex-fill dropdown-item">
-                <div className="form-row">
-                    <div className="col-9">
+            <div className="dropdown-item">
+                <div className="row d-flex">
+                    <div className="col-xs-12 col-sm-9">
                         <a
                             className="font-weight-bold"
                             href={"https://open.spotify.com/artist/" + id}
@@ -29,7 +36,7 @@ class SearchResult extends Component {
                     </div>
                     <div className="col">
                         <button
-                            className="form-control btn btn-primary"
+                            className="btn btn-secondary"
                             style={{backgroundColor: " #1DB954"}}
                             onClick={(e) => this.doArtistFollow(e, id)}
                         >
@@ -38,7 +45,7 @@ class SearchResult extends Component {
                     </div>
                 </div>
 
-            </form>
+            </div>
         )
     }
 }
