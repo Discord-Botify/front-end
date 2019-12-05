@@ -13,6 +13,12 @@ class Home extends Component {
         this.props.getFollows();
     }
 
+    doFollowSpotifyArtists = () => {
+        document.getElementById('spotify-button').setAttribute('disabled');
+        this.props.followSpotifyArtists();
+        document.getElementById('spotify-button').removeAttribute('disabled');
+    };
+
     render() {
         // If the user is logged into Spotify show the sync button
         // otherwise, show the log in with Spotify button
@@ -21,7 +27,8 @@ class Home extends Component {
         if (spotifyUserName !== '') {
             spotifyButton =
                 <button
-                    onClick={this.props.followSpotifyArtists.bind()}
+                    onClick={this.doFollowSpotifyArtists}
+                    id={'spotify-button'}
                     className={"btn btn-primary"}
                     style={{backgroundColor: " #1DB954"}}
                 >

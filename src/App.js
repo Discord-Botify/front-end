@@ -109,8 +109,19 @@ class App extends Component {
         this.setState({spotifyUserName: userName});
     }
 
-    followSpotifyArtists() {
+    followSpotifyArtists = () => {
         console.log('following Spotify artists in dev');
+        Axios.post('https://api.michaelrotuno.dev:4567/artists/' + this.readCookie('stoken'))
+            .then(response => {
+                if(response.status === 201) {
+                    this.setState({follows: response.data});
+                } else {
+                    alert('Error following Spotify Artists');
+                }
+            })
+            .error(
+                alert('Error following Spotify Artists')
+            );
     }
 
     followArtist = (artistId) => {
