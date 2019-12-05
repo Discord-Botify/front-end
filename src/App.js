@@ -122,7 +122,8 @@ class App extends Component {
                 .then(response => {
                     if (response.status === 201) {
                         console.log('Artist follow response: ' + response.data);
-                    } else {
+                        this.getFollows();
+		    } else {
                         alert('Failed adding artist with id: ' + artistId);
                     }
                 });
