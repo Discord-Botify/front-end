@@ -10,7 +10,7 @@ class SearchResult extends Component {
 	doArtistFollow = (id) => {
 		console.log('in doArtistFollow');
 		console.log("artist id: " + id);
-		this.props.followArtist.bind(this, id);
+		this.props.followArtist.bind(id);
 	};
 
     render() {

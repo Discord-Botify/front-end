@@ -126,6 +126,8 @@ class App extends Component {
                         alert('Failed adding artist with id: ' + artistId);
                     }
                 });
+        } else {
+            console.error('artist id to follow is empty!')
         }
     };
 
