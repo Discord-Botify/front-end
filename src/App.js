@@ -156,7 +156,11 @@ class App extends Component {
                     />
 
                     <div className={"container"}>
-                        <Route exact path={'/'} render={props => <Welcome/>}/>
+                        <Route exact path={'/'} render={props => (
+                            <Welcome
+                                readCookie={this.readCookie}
+                            />)}
+                        />
 
                         <Route exact path={'/home'} render={props =>
                             (<Home

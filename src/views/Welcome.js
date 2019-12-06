@@ -4,6 +4,15 @@ import Logout from '../components/Logout';
 
  
 class Welcome extends Component {
+
+    constructor(props) {
+        super(props);
+        let stoken = this.props.readCookie('stoken');
+        if(stoken) {
+            document.cookie = "stoken=" + '';
+        }
+    }
+
     render() {
         return (
             
@@ -20,9 +29,7 @@ class Welcome extends Component {
                 href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Foauth&response_type=code&scope=identify'}>
                 Sign in with Discord
             </a>
-            {/* If you arrive at this page, clear cookies */}
-            <Logout/>
-            
+
         </div>
 
         );

@@ -9,8 +9,6 @@ class NavBar extends Component {
             return null
         } else {
         return (
-            
-
 
             <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <a className="navbar-brand text-discord" href="#">Botify</a>
@@ -26,8 +24,6 @@ class NavBar extends Component {
             </div>
             </div>
             </nav>
-
-
 
             );
         }
