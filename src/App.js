@@ -17,7 +17,6 @@ class App extends Component {
     // copied from user mkoryak's answer on
     //https://stackoverflow.com/questions/10730362/get-cookie-by-name
     readCookie = (name) => {
-console.log('reading cookie: ' + name);
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -145,6 +144,10 @@ console.log('reading cookie: ' + name);
         }
     };
 
+    forceUpdateHandler = () => {
+	this.forceUpdate();
+    }
+
     render() {
         return (
             <CookiesProvider>
@@ -160,6 +163,7 @@ console.log('reading cookie: ' + name);
                         <Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}
+				forceUpdateHandler={this.forceUpdateHandler}
                             />)}
                         />
 

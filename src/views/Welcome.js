@@ -9,8 +9,9 @@ class Welcome extends Component {
         super(props);
         let stoken = this.props.readCookie('stoken');
         if(stoken) {
-            document.cookie = "stoken=" + '';
-        }
+            document.cookie = "stoken= ; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+            this.props.forceUpdateHandler();
+	}
     }
 
     render() {
