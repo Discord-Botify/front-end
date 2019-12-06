@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
  
 class NavBar extends Component {
     render() {
-
-        if(this.props.stoken===null){
-            return null
-        } else {
         return (
 
             <nav className="navbar navbar-expand-lg navbar-light bg-dark">
@@ -25,8 +21,7 @@ class NavBar extends Component {
             </div>
             </nav>
 
-            );
-        }
+        );
     }
 }
 export default NavBar;

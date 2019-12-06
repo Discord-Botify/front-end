@@ -149,15 +149,22 @@ class App extends Component {
     };
 
     render() {
+        let navbar = null;
+        if(this.readCookie('stoken')) {
+            navbar =
+                <NavBar
+                    stoken={this.readCookie('stoken')}
+                    spotifyUserName={this.state.spotifyUserName}
+                    spotifyLogin={this.spotifyLogin}
+                    followSpotifyArtists={this.followSpotifyArtists}
+                />
+        }
+
+
         return (
             <CookiesProvider>
+                {navbar}
                 <Router>
-                    <NavBar
-                        stoken={this.readCookie('stoken')}
-                        spotifyUserName={this.state.spotifyUserName}
-                        spotifyLogin={this.spotifyLogin}
-                        followSpotifyArtists={this.followSpotifyArtists}
-                    />
 
                     <div className={"container-fluid"}>
                         <Route exact path={'/'} render={props => (
