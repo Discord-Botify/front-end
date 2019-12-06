@@ -7,7 +7,6 @@ class NavBar extends Component {
         return (
 
             <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-            <a className="navbar-brand text-discord" href="#">Botify</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-nav m-auto"></span>
             </button>
