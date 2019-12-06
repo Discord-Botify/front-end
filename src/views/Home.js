@@ -14,7 +14,7 @@ class Home extends Component {
     }
 
     doFollowSpotifyArtists = () => {
-        document.getElementById('spotify-button').setAttribute('disabled');
+        document.getElementById('spotify-button').setAttribute('disabled', true);
         this.props.followSpotifyArtists();
         document.getElementById('spotify-button').removeAttribute('disabled');
     };
@@ -24,7 +24,8 @@ class Home extends Component {
         // otherwise, show the log in with Spotify button
         let spotifyButton;
         let spotifyUserName = this.props.readCookie('spotifyUserName');
-        if (spotifyUserName !== '') {
+        console.log('spotify user name in cookie: ' + spotifyUserName);
+	if (spotifyUserName) {
             spotifyButton =
                 <button
                     onClick={this.doFollowSpotifyArtists}
