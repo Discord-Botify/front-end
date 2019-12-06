@@ -25,7 +25,7 @@ class App extends Component {
             if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
-    }
+    };
 
     state = {
         sessionId: 'notoken',
@@ -146,7 +146,7 @@ class App extends Component {
 
     forceUpdateHandler = () => {
 	this.forceUpdate();
-    }
+    };
 
     render() {
         return (
@@ -159,7 +159,7 @@ class App extends Component {
                         followSpotifyArtists={this.followSpotifyArtists}
                     />
 
-                    <div className={"container"}>
+                    <div className={"container-fluid"}>
                         <Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}

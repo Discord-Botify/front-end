@@ -30,7 +30,7 @@ class Home extends Component {
                 <button
                     onClick={this.doFollowSpotifyArtists}
                     id={'spotify-button'}
-                    className={"btn btn-primary"}
+                    className={"btn btn-secondary"}
                     style={{backgroundColor: " #1DB954"}}
                 >
                     Sync followed artists with Spotify
@@ -39,7 +39,7 @@ class Home extends Component {
             spotifyButton =
                 <a
                     href={"https://accounts.spotify.com/authorize?client_id=98963ec74fd1458abc45cd519d4494de&response_type=code&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Fspotify-oauth&scope=user-follow-read%20user-read-private"}
-                    className={"btn btn-primary"}
+                    className={"btn btn-secondary"}
                     style={{backgroundColor: " #1DB954"}}
                 >
                     Sign in with Spotify to Sync
@@ -57,7 +57,7 @@ class Home extends Component {
                 <div className={"row d-flex my-4"}>
                     <div className={"col"}>
 			            <SearchBar followArtist={this.props.followArtist}/>
-                        <div className="FollowList">
+                        <div className="FollowList mx-4">
                             <FollowList state={this.props.state}
                                         unfollow={this.props.unfollow}/>
                         </div>
