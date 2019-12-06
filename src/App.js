@@ -113,16 +113,17 @@ class App extends Component {
         console.log('following Spotify artists in dev');
         Axios.post('https://api.michaelrotuno.dev:4567/artists/' + this.readCookie('stoken'))
             .then(response => {
-                if(response.status === 201) {
+                if (response.status === 201) {
                     this.setState({follows: response.data});
                 } else {
                     alert('Error following Spotify Artists');
                 }
             })
-            .error(
-                alert('Error following Spotify Artists')
+            .catch(error => {
+                    alert('Error following Spotify Artists')
+                }
             );
-    }
+    };
 
     followArtist = (artistId) => {
         if (artistId !== '') {
@@ -134,7 +135,7 @@ class App extends Component {
                     if (response.status === 201) {
                         console.log('Artist follow response: ' + response.data);
                         this.getFollows();
-		    } else {
+                    } else {
                         alert('Failed adding artist with id: ' + artistId);
                     }
                 });
