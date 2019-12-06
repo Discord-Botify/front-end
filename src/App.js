@@ -16,7 +16,8 @@ class App extends Component {
 
     // copied from user mkoryak's answer on
     //https://stackoverflow.com/questions/10730362/get-cookie-by-name
-    readCookie(name) {
+    readCookie = (name) => {
+console.log('reading cookie: ' + name);
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
