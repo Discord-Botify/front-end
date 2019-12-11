@@ -15,8 +15,21 @@ class Home extends Component {
 
     doFollowSpotifyArtists = () => {
         document.getElementById('spotify-button').setAttribute('disabled', true);
-        this.props.followSpotifyArtists();
-        document.getElementById('spotify-button').removeAttribute('disabled');
+        var completed = new Promise(function(resolve, reject) {
+            let isSuccessful = this.props.followSpotifyArtists();
+
+            if(isSuccessful) {
+                resolve("worked");
+            } else {
+                reject("error");
+            }
+
+        });
+
+        completed.then(function(result) {
+            document.getElementById('spotify-button').removeAttribute('disabled');
+        });
+        
     };
 
     render() {

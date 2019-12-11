@@ -118,9 +118,11 @@ class App extends Component {
                 } else {
                     alert('Error following Spotify Artists');
                 }
+                return true;
             })
             .catch(error => {
-                    alert('Error following Spotify Artists')
+                    alert('Error following Spotify Artists');
+                    return false;
                 }
             );
     };
