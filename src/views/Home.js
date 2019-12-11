@@ -27,10 +27,10 @@ class Home extends Component {
                 resolve("worked");
             } else {
                 reject("error");
-            }
+            };
 
         });
-    }
+    };
 
         completed.then(function(result) {
             console.log("completed the Spotify follow");
