@@ -10,9 +10,9 @@ class FollowItem extends Component {
             <div className={'card card-discord'}>
                 <div className={'card-body'}>
                     <h5 className={'card-title'}>{name}</h5>
-                    <button className="UnfollowBtn"
+                    <button className="btn btn-secondary SpotButton"
                         onClick={this.props.unfollow.bind(this, id)}>
-                            Unfollow
+                            Do not notify
                     </button>
                 </div>
             </div>
