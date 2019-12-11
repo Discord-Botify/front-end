@@ -15,8 +15,12 @@ class Home extends Component {
 
     doFollowSpotifyArtists = () => {
         document.getElementById('spotify-button').setAttribute('disabled', true);
-        var completed = new Promise(function(resolve, reject) {
-            let isSuccessful = this.props.followSpotifyArtists();
+
+        let func = this.props.followSpotifyArtists();
+
+        var completed = function(func) {
+        return new Promise(function(resolve, reject) {
+            let isSuccessful = func;
             console.log(isSuccessful);
 
             if(isSuccessful) {
@@ -26,6 +30,7 @@ class Home extends Component {
             }
 
         });
+    }
 
         completed.then(function(result) {
             console.log("completed the Spotify follow");
