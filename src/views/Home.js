@@ -17,6 +17,7 @@ class Home extends Component {
         document.getElementById('spotify-button').setAttribute('disabled', true);
         var completed = new Promise(function(resolve, reject) {
             let isSuccessful = this.props.followSpotifyArtists();
+            console.log(isSuccessful);
 
             if(isSuccessful) {
                 resolve("worked");
@@ -27,6 +28,7 @@ class Home extends Component {
         });
 
         completed.then(function(result) {
+            console.log("completed the Spotify follow");
             document.getElementById('spotify-button').removeAttribute('disabled');
         });
         
