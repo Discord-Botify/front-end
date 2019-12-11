@@ -73,7 +73,7 @@ export class SearchBar extends Component {
                                 id="searchString"
                                 style={{flex: '10', padding: '5px'}}
                                 onKeyPress={this.getSearchResults.bind(this)}
-                                placeholder="Search Artist To Follow"/>
+                                placeholder="Search Artist To Follow on Botify"/>
                         </div>
 
                         {this.searchResults}
