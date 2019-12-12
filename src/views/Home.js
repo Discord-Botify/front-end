@@ -15,22 +15,26 @@ class Home extends Component {
 
     doFollowSpotifyArtists = () => {
         document.getElementById('spotify-button').setAttribute('disabled', true);
+        this.props.followSpotifyArtists();
+        document.getElementById('spotify-button').removeAttribute('disabled');
+
+
 
         let func = this.props.followSpotifyArtists();
 
         var completed = function(func) {
-        return new Promise(function(resolve, reject) {
-            let isSuccessful = func;
-            console.log(isSuccessful);
+            return new Promise(function(resolve, reject) {
+                let isSuccessful = func;
+                console.log(isSuccessful);
 
-            if(isSuccessful) {
-                resolve("worked");
-            } else {
-                reject("error");
-            }
+                if(isSuccessful) {
+                    resolve("worked");
+                } else {
+                    reject("error");
+                }
 
-        });
-    }
+            });
+        }
 
         completed.then(function(result) {
             console.log("completed the Spotify follow");
