@@ -27,14 +27,14 @@ class Home extends Component {
                 let isSuccessful = func;
                 console.log(isSuccessful);
 
-                if(isSuccessful) {
-                    resolve("worked");
-                } else {
-                    reject("error");
-                }
+            if(isSuccessful) {
+                resolve("worked");
+            } else {
+                reject("error");
+            };
 
-            });
-        }
+        });
+    };
 
         completed.then(function(result) {
             console.log("completed the Spotify follow");
