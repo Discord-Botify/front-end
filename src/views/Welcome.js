@@ -16,7 +16,6 @@ class Welcome extends Component {
 
     render() {
         return (
-
             <div className={'container align-self-center'}>
                 <div className="row">
                     <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-center">
@@ -43,29 +42,6 @@ class Welcome extends Component {
                     </div>
                 </div>
                 <div className="row my-4"></div>
-
-
-
-
-
-
-                {/* <div className="row d-flex justify-content-center align-items-center">
-                    <div className={'col-xs-12 display-1'}>
-                        Welcome to Botify
-                    </div>
-                    <div className={'h2'}>
-                        The Album Notification Service for Discord
-                    </div>
-                </div>
-                <div className="row d-flex justify-content-center align-items-center">
-                    <div className={'col-xs-12'}>
-                        <a
-                            className={'btn OAuthButton'}
-                            href={'https://discordapp.com/api/oauth2/authorize?client_id=641722480511156235&redirect_uri=https%3A%2F%2Fbotify.michaelrotuno.dev%2Foauth&response_type=code&scope=identify'}>
-                            Sign in with Discord
-                        </a>
-                    </div>
-                </div> */}
             </div>
 
         );

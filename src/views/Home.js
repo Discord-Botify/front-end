@@ -72,7 +72,8 @@ class Home extends Component {
 
 
         return (
-            <div className="App">
+            <div className="App row">
+                <div className="col">
                 <div className={"row d-flex justify-content-center my-4"}>
                     <div className={"col d-flex justify-content-center"}>
                         {spotifyButton}
@@ -86,6 +87,7 @@ class Home extends Component {
                                         unfollow={this.props.unfollow}/>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 
