@@ -9,6 +9,7 @@ html, body {
 
 .display-1 {
   color: #FFFFFF;
+  font-family: 'Aldrich';
 }
 
 .h2 {
@@ -155,6 +156,11 @@ html, body {
 
 .Filler > a {
   padding: 2em;
+}
+
+.btn-discord {
+  background-color: #7289DA;
+  font: 22px;
 }
 
 @media only screen and (max-width: 768px){

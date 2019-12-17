@@ -13,7 +13,7 @@ import Axios from "axios";
 
 
 class App extends Component {
-
+    
     // copied from user mkoryak's answer on
     //https://stackoverflow.com/questions/10730362/get-cookie-by-name
     readCookie = (name) => {
@@ -39,34 +39,38 @@ class App extends Component {
                 this.setState({follows: response.data});
             })
             .catch(error => {
-                console.log('axios call failed');
+                console.log('There is no matching stoken');
                 // Populate the app with some fake artists (mostly for development reasons)
                 // TODO: remove this code for production
                 this.setState({
                     follows: [
                         {
                             id: '1',
-                            name: 'This is a fake artist'
+                            name: 'Your sign in'
                         },
                         {
                             id: '2',
-                            name: 'Another fake'
+                            name: 'Did not work'
                         },
                         {
                             id: '3',
-                            name: 'Another fake 3'
+                            name: 'Please log out'
                         },
                         {
                             id: '4',
-                            name: 'Another fake 4'
+                            name: 'By removing /home'
                         },
                         {
                             id: '5',
-                            name: 'Another fake 5'
+                            name: 'In the address bar'
                         },
                         {
                             id: '6',
-                            name: 'Another fake 6'
+                            name: 'And try again'
+                        },
+                        {
+                            id: '7',
+                            name: ':)'
                         },
                     ]
                 });
@@ -147,7 +151,7 @@ class App extends Component {
     };
 
     forceUpdateHandler = () => {
-	this.forceUpdate();
+	    this.forceUpdate();
     };
 
     render() {
@@ -166,7 +170,7 @@ class App extends Component {
         return (
             <CookiesProvider>
                 <Router>
-                    <div className={"container-fluid"}>
+                    <div className={"container-fluid d-flex"}>
                         {navbar}
                         <Route exact path={'/'} render={props => (
                             <Welcome
@@ -192,9 +196,7 @@ class App extends Component {
 
                         {/* Redirect for Discord oauth */}
                         <Route exact path={'/oauth'} render={props => (
-                            <><DiscordAuthRedirect
-                                stoken={this.readCookie('stokenProp')}
-                                location={this.props.location}/></>
+                            <><DiscordAuthRedirect/></>
                             // logic here to use onLogin
                         )}/>
 
