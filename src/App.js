@@ -172,7 +172,7 @@ class App extends Component {
             <CookiesProvider>
                 {navbar}
                 <Router>
-                    <div className={"container-fluid d-flex"}>
+                    <div className={"container-fluid d-flex align-items-stretch"}>
                         <Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}
