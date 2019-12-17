@@ -168,10 +168,11 @@ class App extends Component {
 
 
         return (
+
             <CookiesProvider>
+                {navbar}
                 <Router>
                     <div className={"container-fluid d-flex"}>
-                        {navbar}
                         <Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}
