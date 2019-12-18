@@ -14,23 +14,34 @@ class Welcome extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.typeWriter('Welcome to Botify', 'title');
+    }
+
     render() {
         return (
             <div className={'container align-self-center'}>
                 <div className="row">
-                    <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-center">
-                        <div className="display-1 text-center font-weight-bold">
-                            Welcome to Botify
+                    <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-start">
+                        <div 
+                            className="display-1 text-left font-weight-bold" 
+                            id="title"
+                            style={{color: '#1DB954'}}
+                        >
+                            
                         </div>
-                        <div className={'h2 text-center'}>
-                            The Album Notification Service for Discord
+                        <hr></hr>
+                        <div className={'h2 text-center'} id="subtitle">
+                            The album notification service for Discord
                         </div>
                     </div>
                     <div className="col-xs-12 col-lg-1"></div>
-                    <div className="col-xs-12 col-lg-3 d-flex justify-content-center">
-                        <div className="card card-discord my-2 p-0">
+                    <div className="col-xs-12 col-lg-4 d-flex justify-content-center">
+                        <div 
+                            className="card card-discord my-2 p-0 w-200"
+                            style={{height: ''}}>
                             <div className="card-body">
-                                <div class="h3 text-center card-title">Sign Up</div>
+                                <div className="h3 text-center card-title">Sign Up</div>
                                 <hr></hr>
                                 <a
                                 className={'btn btn-secondary btn-lg btn-discord align-self-center text-bold'}
