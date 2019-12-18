@@ -21,9 +21,9 @@ class Welcome extends Component {
     render() {
         return (
 		<div className="container-fluid d-flex">
-            <div className={'container align-self-center'}>
+            <div className={'container align-self-center p-0'}>
                 <div className="row">
-                    <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-start">
+                    <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-start pl-0">
                         <div 
                             className="display-2 text-left font-weight-bold" 
                             id="title"
