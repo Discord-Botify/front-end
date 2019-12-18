@@ -154,6 +154,42 @@ class App extends Component {
 	    this.forceUpdate();
     };
 
+    
+    typeWriter = async (text, elementId) => {
+        let i = 0;
+        const speed = 75; /* The speed/duration of the effect in milliseconds */
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        let currentText = '|';
+
+        while (i < text.length) {
+            currentText = currentText.substring(0, currentText.length - 1);
+            currentText += text.charAt(i) + '|';
+            document.getElementById(elementId).innerHTML = currentText;
+            i++;
+            await sleep(speed);
+        }
+
+        let hasPipe = true;
+
+        while(true) {
+            if(hasPipe === true) {
+                currentText = currentText.substring(0, currentText.length - 1);
+                document.getElementById(elementId).innerHTML = currentText;
+                hasPipe = false;
+            } else {
+                currentText += '|';
+                document.getElementById(elementId).innerHTML = currentText;
+                hasPipe = true;
+            }
+            await sleep(500);
+        }
+    
+    }
+
     render() {
         let navbar = null;
         if(this.readCookie('stoken')) {
@@ -176,7 +212,8 @@ class App extends Component {
 			<Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}
-				forceUpdateHandler={this.forceUpdateHandler}
+                                forceUpdateHandler={this.forceUpdateHandler}
+                                typeWriter={this.typeWriter}
                             />)}
                         />
 
