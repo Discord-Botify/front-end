@@ -25,7 +25,7 @@ class Welcome extends Component {
                 <div className="row">
                     <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-start">
                         <div 
-                            className="display-1 text-left font-weight-bold" 
+                            className="display-2 text-left font-weight-bold" 
                             id="title"
                             style={{color: '#1DB954'}}
                         >
