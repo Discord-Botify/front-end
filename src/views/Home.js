@@ -72,7 +72,7 @@ class Home extends Component {
 
 
         return (
-            <div className="App row">
+            <div className="App row d-flex">
                 <div className="col">
                 <div className={"row d-flex justify-content-center my-4"}>
                     <div className={"col d-flex justify-content-center"}>
