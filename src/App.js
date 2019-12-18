@@ -171,7 +171,7 @@ class App extends Component {
 
             <CookiesProvider>
                 <Router>
-                    <div className={"container-fluid d-flex align-items-stretch"}>
+                    <div className={"container-fluid"}>
 			{navbar}
 			<Route exact path={'/'} render={props => (
                             <Welcome
