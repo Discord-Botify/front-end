@@ -208,8 +208,8 @@ class App extends Component {
             <CookiesProvider>
                 <Router>
                     <div className={"container-fluid"}>
-			{navbar}
-			<Route exact path={'/'} render={props => (
+			            {navbar}
+			            <Route exact path={'/'} render={props => (
                             <Welcome
                                 readCookie={this.readCookie}
                                 forceUpdateHandler={this.forceUpdateHandler}

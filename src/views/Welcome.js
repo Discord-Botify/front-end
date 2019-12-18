@@ -20,7 +20,7 @@ class Welcome extends Component {
 
     render() {
         return (
-		<div className="row d-flex align-items-center">
+		<div className="container-fluid d-flex">
             <div className={'container align-self-center'}>
                 <div className="row">
                     <div className="col-xs-12 col-lg-7 d-flex flex-column align-items-start">
@@ -39,8 +39,8 @@ class Welcome extends Component {
                     <div className="col-xs-12 col-lg-1"></div>
                     <div className="col-xs-12 col-lg-4 d-flex justify-content-center">
                         <div 
-                            className="card card-discord my-2 p-0 w-100"
-                            style={{height: ''}}>
+                            className="card card-discord my-2 p-0"
+                            style={{height: '270px'}}>
                             <div className="card-body">
                                 <div className="h3 text-center card-title">Sign Up</div>
                                 <hr></hr>
