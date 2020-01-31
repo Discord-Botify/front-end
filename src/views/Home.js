@@ -43,6 +43,10 @@ class Home extends Component {
         
     };
 
+    unfollowAll = () => {
+        this.props.unfollowAll();
+    }
+
     render() {
         // If the user is logged into Spotify show the sync button
         // otherwise, show the log in with Spotify button
@@ -69,6 +73,13 @@ class Home extends Component {
                     Sign in with Spotify to Sync
                 </a>
         }
+        let unfollowAllButton = 
+            <button
+            className={'btn btn-warning'}
+            onClick={this.unfollowAll}
+            >
+
+            </button>
 
 
         return (
@@ -77,6 +88,7 @@ class Home extends Component {
                 <div className={"row d-flex justify-content-center my-4"}>
                     <div className={"col d-flex justify-content-center"}>
                         {spotifyButton}
+                        {unfollowAllButton}
                     </div>
                 </div>
                 <div className={"row d-flex my-4"}>

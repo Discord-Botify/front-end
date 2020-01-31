@@ -91,6 +91,18 @@ class App extends Component {
 
     };
 
+    unfollowAll = () => {
+        Axios.delete("https://api.michaelrotuno.dev:4567/users/follow")
+            .then(response => {
+                if(response.status === 204) {
+                    this.setState({follows: []});
+                }
+                else {
+                    alert("Did not work");
+                }
+            })
+    }
+
     spotifyLogin(code) {
         Axios({
             method: 'post',
@@ -225,6 +237,7 @@ class App extends Component {
                                 unfollow={this.unfollow}
                                 followSpotifyArtists={this.followSpotifyArtists}
                                 followArtist={this.followArtist}
+                                unfollowAll={this.unfollowAll}
                             />)
                         }/>
 
