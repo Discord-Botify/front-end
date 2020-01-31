@@ -92,7 +92,7 @@ class App extends Component {
     };
 
     unfollowAll = () => {
-        Axios.delete("https://api.michaelrotuno.dev:4567/users/follow")
+        Axios.delete("https://api.michaelrotuno.dev:4567/users/follow/" + this.readCookie('stoken'))
             .then(response => {
                 if(response.status === 204) {
                     this.setState({follows: []});
@@ -100,7 +100,7 @@ class App extends Component {
                 else {
                     alert("Did not work");
                 }
-            })
+            });
     }
 
     spotifyLogin(code) {
